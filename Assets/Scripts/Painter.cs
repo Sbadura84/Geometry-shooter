@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,6 +11,8 @@ public class Painter : MonoBehaviour
     [SerializeField] private float multiplier;
     [SerializeField] List<Tile> tiles = new List<Tile>();
     [SerializeField] Tilemap basicTileMap;
+    [SerializeField] Tilemap specialTileMap;
+    [SerializeField] List<Tile> specialTiles = new List<Tile>();
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,7 @@ public class Painter : MonoBehaviour
             {
                 float choice = Mathf.PerlinNoise(x * multiplier, y * multiplier);
                 Debug.Log(x + ":x" + y+ ":y" + "choice:"+choice);
-                if(choice > 0.7)
+                if(choice > 0.6)
                 {
                     basicTileMap.SetTile(new Vector3Int(x, y, 0), tiles[0]);
                 }
