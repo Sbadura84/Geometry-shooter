@@ -10,6 +10,10 @@ public class DebugSpawnOnClick : MonoBehaviour
     [SerializeField] List<Enemy> enemies  = new List<Enemy>();
     [SerializeField] bool spawnCircular = false;
     [SerializeField] GameObject player;
+
+    [SerializeField]  private float spawnInterval;
+    private float spawnTimer;
+
     // Start is called before the first frame update
 
 
@@ -22,12 +26,16 @@ public class DebugSpawnOnClick : MonoBehaviour
             spawnPosition.z = 0;
             Instantiate(enemies[0], spawnPosition, transform.rotation);
         }
-        if (spawnCircular == true)
+        if (spawnCircular == true && spawnTimer < Time.time)
             SpawnCircular();
     }
     private void SpawnCircular() {
         //poprawic spawnuje tylko prawy gorny
-        Vector3 spawnPosition = player.transform.position * 3 + Vector3.one*Random.Range(1, 6);
+        Vector2 pointOnCircle = Random.insideUnitCircle.normalized * 10;
+        Vector3 spawnPosition = player.transform.position + new Vector3(pointOnCircle.x,pointOnCircle.y,0);
+
+        //Vector3 spawnPosition = player.transform.position +Vector3.one*5;
         Instantiate(enemies[0], spawnPosition, transform.rotation);
+        spawnTimer = Time.time + spawnInterval;
     }
 }

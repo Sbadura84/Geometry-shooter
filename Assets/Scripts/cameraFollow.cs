@@ -17,6 +17,8 @@ public class cameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.mouseScrollDelta.y > 0 && zoom <10) { zoom = zoom + 1; }
+        if (Input.mouseScrollDelta.y < 0 && zoom >5) { zoom = zoom - 1; }
         transform.position = new Vector3(target.transform.position.x, target.transform.position.y, -10);
         mainCamera.orthographicSize = zoom;
     }

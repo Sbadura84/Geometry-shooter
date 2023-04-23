@@ -10,15 +10,16 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float movementSpeed;
     [SerializeField] private Camera cam;
-    [SerializeField] private float speed =1f;
-    [SerializeField] GameObject rotationPoint;
+    [SerializeField] GameObject attackPoint;
     [SerializeField] private float invurability = 0.15f;
     [SerializeField] private float invurabilityFrame;
     [SerializeField] private float currentHealt;
+    public string playerID;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerID = gameObject.name;
         currentHealt= 10;
     }
 
@@ -26,18 +27,17 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         rb.MovePosition(rb.position + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"))*movementSpeed);
-
+        //rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed, Input.GetAxis("Vertical") * movementSpeed);
         //transform.LookAt(cam.ScreenToWorldPoint(Input.mousePosition));
-        rotateTowards();
+        RotateTowards();
     }
 
 
-    void rotateTowards()
+    void RotateTowards()
     {
         Vector3 targ = cam.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log("Target= " + targ);
         targ.z = 0f;
-
         targ.x = targ.x - transform.position.x;
         targ.y = targ.y - transform.position.y;
 

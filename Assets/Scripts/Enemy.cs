@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -9,7 +10,7 @@ public class Enemy : MonoBehaviour
     private float randSize;
     [SerializeField] private int maxHealth;
     [SerializeField] private float currentHealth;
-    [SerializeField] private float enemySpeed;
+    [SerializeField] public float enemySpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class Enemy : MonoBehaviour
         transform.name = newName + ";" + randSize;
         currentHealth = maxHealth * randSize; 
         transform.localScale = Vector3.one*randSize;
-        enemySpeed = enemySpeed * randSize;
+        enemySpeed = enemySpeed * 1+(1-randSize);
     }
 
     // Update is called once per frame
@@ -49,5 +50,21 @@ public class Enemy : MonoBehaviour
         float mean = (minValue + maxValue) / 2.0f;
         float sigma = (maxValue - mean) / 3.0f;
         return Mathf.Clamp(std * sigma + mean, minValue, maxValue);
+    }
+    
+    public int TakeDamage(float damageTaken)
+    {
+        currentHealth = currentHealth - damageTaken;
+        if(currentHealth < 0)
+        {
+            Destroy(gameObject);
+            return 1;
+        }
+        return 0;
+    }
+
+    internal void TakeDamage(object bulletDamage)
+    {
+        throw new NotImplementedException();
     }
 }
