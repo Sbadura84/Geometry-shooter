@@ -14,15 +14,16 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float invurability = 0.15f;
     [SerializeField] private float invurabilityFrame;
     [SerializeField] private float currentHealt;
+    [SerializeField] private float maxHealth = 10f;
     public string playerID;
 
     // Start is called before the first frame update
     void Start()
     {
         playerID = gameObject.name;
-        currentHealt= 10;
+        currentHealt= maxHealth;
     }
-
+    
     // Update is called once per frame
     void Update()
     {

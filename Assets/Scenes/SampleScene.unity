@@ -186,9 +186,10 @@ MonoBehaviour:
   movementSpeed: 0.2
   cam: {fileID: 519420031}
   attackPoint: {fileID: 0}
-  invurability: 100
+  invurability: 0
   invurabilityFrame: 0
   currentHealt: 0
+  maxHealth: 10
   playerID: 
 --- !u!4 &80288845
 Transform:
@@ -101149,9 +101150,9 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   enemies:
   - {fileID: 2215094801061673283, guid: 52dc85131633ef6448e207d64cb21d83, type: 3}
-  spawnCircular: 0
+  spawnCircular: 1
   player: {fileID: 80288841}
-  spawnInterval: 1
+  spawnInterval: 0.68
 --- !u!1 &2066702254
 GameObject:
   m_ObjectHideFlags: 0
