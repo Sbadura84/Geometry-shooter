@@ -35,7 +35,7 @@ Transform:
   - {fileID: 653507909783899055}
   - {fileID: 3863133126577994910}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2215094801061673283
 MonoBehaviour:
@@ -127,9 +127,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.002568245, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.36
 --- !u!1 &4881607865041961034
 GameObject:
   m_ObjectHideFlags: 0

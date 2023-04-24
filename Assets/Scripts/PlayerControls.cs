@@ -13,7 +13,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] GameObject attackPoint;
     [SerializeField] private float invurability = 0.15f;
     [SerializeField] private float invurabilityFrame;
-    [SerializeField] private float currentHealt;
+    [SerializeField] public float currentHealth;
     [SerializeField] private float maxHealth = 10f;
     public string playerID;
 
@@ -21,7 +21,7 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         playerID = gameObject.name;
-        currentHealt= maxHealth;
+        currentHealth= maxHealth;
     }
     
     // Update is called once per frame
@@ -51,10 +51,10 @@ public class PlayerControls : MonoBehaviour
     {
         if (Time.time > invurabilityFrame)
         {
-            currentHealt = currentHealt - damageAmount;
+            currentHealth = currentHealth - damageAmount;
             invurabilityFrame = Time.time + invurability;
         }
-        if(currentHealt < 0)
+        if(currentHealth < 0)
         {
             Die();
         }

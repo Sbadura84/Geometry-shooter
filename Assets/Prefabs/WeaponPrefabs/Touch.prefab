@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8087364918280474707
 MonoBehaviour:
@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cf8f473d84cd64c936f651fb8ca17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCoolDown: 0.5
+  attackTime: 0
+  circleCollider: {fileID: 0}
 --- !u!58 &8087364918280474705
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -77,6 +80,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00085639954, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.36899376

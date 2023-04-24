@@ -7,7 +7,7 @@ public class TurretMenager : MonoBehaviour
 {
     [SerializeField] public Dictionary<string, TurretData> turretMenagement = new Dictionary<string, TurretData>();
     // Start is called before the first frame update
-    [SerializeField] private int playerKillCount;
+    [SerializeField] public int playerKillCount;
     void Start()
     {
         GameObject[] tempTurrets = GameObject.FindGameObjectsWithTag("Turret");
